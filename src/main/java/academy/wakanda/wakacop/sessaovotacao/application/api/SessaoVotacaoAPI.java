@@ -15,4 +15,8 @@ public interface SessaoVotacaoAPI {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/{idSessao}/voto")
     VotoResponse recebeVoto(@PathVariable UUID idSessao, @RequestBody VotoRequest novoVoto);
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/{idSessao}/resultado")
+    ResultadoSessaoResponse obtemResultado(@PathVariable UUID idSessao);
 }

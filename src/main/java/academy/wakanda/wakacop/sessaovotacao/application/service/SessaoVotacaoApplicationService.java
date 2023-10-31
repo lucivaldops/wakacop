@@ -32,11 +32,11 @@ public class SessaoVotacaoApplicationService implements SessaoVotacaoService {
 
     @Override
     public VotoResponse recebeVoto(UUID idSessao, VotoRequest novoVoto) {
-        log.info("[start] SessaoVotacaoApplicationService - recebeVoto");
+        log.debug("[start] SessaoVotacaoApplicationService - recebeVoto");
         SessaoVotacao sessao = sessaoVotacaoRepository.buscaPorId(idSessao);
         VotoPauta voto = sessao.recebeVoto(novoVoto,associadoService);
         sessaoVotacaoRepository.salva(sessao);
-        log.info("[finish] SessaoVotacaoApplicationService - recebeVoto");
+        log.debug("[finish] SessaoVotacaoApplicationService - recebeVoto");
         return new VotoResponse(voto);
     }
 
